@@ -1,0 +1,12 @@
+# Example compose override: mounts the patched proxy.js over the original.
+# Copy to docker-compose.override.yml next to your docker-compose.yml, then
+# change the service name and host path to match your setup, and run:
+#   docker compose up -d
+#
+# On SELinux hosts (RHEL, Rocky, Fedora) append ",Z" after ":ro" so the
+# container can read the file.
+
+services:
+  echo-speaks-server:            # <- your Echo Speaks service name
+    volumes:
+      - /path/to/echo-speaks-ax-patch/proxy.js:/usr/src/app/libs/alexa-cookie/lib/proxy.js:ro
