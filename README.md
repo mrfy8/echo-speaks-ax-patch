@@ -2,6 +2,16 @@
 
 Unofficial fix for the **Echo Speaks server v2.8.0** Amazon login, broken by Amazon's new sign-in page in October 2026.
 
+## Quick start
+
+1. Download the patched file: **[proxy.js](https://raw.githubusercontent.com/mrfy8/echo-speaks-ax-patch/main/proxy.js)**
+2. Replace the server's `libs/alexa-cookie/lib/proxy.js` with it:
+   - **Docker:** the path inside the container is always `/usr/src/app/libs/alexa-cookie/lib/proxy.js`.
+   - **Without Docker:** it's under your Echo Speaks server folder.
+3. Restart the server and log in again (a private/incognito window helps).
+
+Step-by-step Docker commands, undo steps and details are below.
+
 ## Symptoms
 
 When you log in through the Echo Speaks server (`http://<server-ip>:8091` → **Goto Login Page**), entering your email or mobile number and pressing **Continue** fails with either:
